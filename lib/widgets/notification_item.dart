@@ -29,7 +29,7 @@ class _NotificationItemState extends State<NotificationItem> {
           left: 10,
           right: 10,
         ),
-        elevation: 5,
+        elevation: 6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7),
         ),
@@ -83,15 +83,23 @@ class _NotificationItemState extends State<NotificationItem> {
                 ),
               ),
               if (_isExpanded)
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                    left: 20,
-                    right: 20,
-                  ),
-                  child: Container(
-                    child: Text(notifOb.description),
-                  ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        left: 20,
+                        right: 20,
+                      ),
+                      child: Container(
+                        child: Text(notifOb.description),
+                      ),
+                    ),
+                    if (notifOb.link.length != 0)
+                      Container(
+                        child: Text('link: ${notifOb.link}'),
+                      ),
+                  ],
                 ),
               Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 7),

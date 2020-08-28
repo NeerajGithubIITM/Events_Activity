@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../widgets/notification_item.dart';
+import '../widgets/searchbar.dart';
+import '../widgets/button_row.dart';
 import '../providers/notification.dart';
 
 class EventListScreen extends StatefulWidget {
@@ -30,28 +32,42 @@ class _EventListScreenState extends State<EventListScreen> {
     final loadedNotifs = notifs.notifItems;
 
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Container(
-            child: Text(
-              'EVENTS',
-              textAlign: TextAlign.center,
+      body: Container(
+        padding: EdgeInsets.only(top: 25, left: 20, right: 20, bottom: 30),
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Text(
+                'EVENTS',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Expanded(
-            child: _isLoading
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : ListView.builder(
-                    itemCount: loadedNotifs.length,
-                    itemBuilder: (ctx, index) => ChangeNotifierProvider.value(
-                      value: loadedNotifs[index],
-                      child: NotificationItem(),
+            SizedBox(
+              height: 20,
+            ),
+            SearchBar(),
+            SizedBox(
+              height: 10,
+            ),
+            ButtonRow(),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: _isLoading
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : ListView.builder(
+                      itemCount: loadedNotifs.length,
+                      itemBuilder: (ctx, index) => ChangeNotifierProvider.value(
+                        value: loadedNotifs[index],
+                        child: NotificationItem(),
+                      ),
                     ),
-                  ),
-          ),
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -30,7 +30,7 @@ class EventImage extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   child: IconButton(
-                    onPressed: () => print('up arrow'),
+                    onPressed: (){},
                     icon: Icon(Icons.arrow_upward),
                     color: Colors.purple,
                   ),
@@ -41,7 +41,7 @@ class EventImage extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   child: IconButton(
-                    onPressed: () => print('favorite'),
+                    onPressed: (){},
                     icon: Icon(Icons.favorite),
                     color: Colors.red,
                   ),

@@ -54,6 +54,11 @@ class _NotificationItemState extends State<NotificationItem> {
                     ),
                     if (notifOb.link.length != 0)
                       Container(
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                          left: 20,
+                          right: 20,
+                        ),
                         child: Text('link: ${notifOb.link}'),
                       ),
                   ],
